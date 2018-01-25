@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Ana Sayfa - {{ block.super }} {% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="row" style="margin-bottom: 30px">
+
+            <div class="col-md-3 col-sm-6" style="background-color: #2b542c; height: 100px">1. ürün</div>
+            <div class="col-md-3 col-sm-6" style="background-color: #041654; height: 100px">2. ürün</div>
+            <div class="col-md-3 col-sm-6" style="background-color: #541e08; height: 100px">3. ürün</div>
+            <div class="col-md-3 col-sm-6" style="background-color: #4d5400; height: 100px">4. ürün</div>
+
+        </div>
+
+        Hoşgeldiniz, {{ request.user.get_full_name }}
+
+    </div>
+
+{% endblock %}
