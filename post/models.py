@@ -42,6 +42,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publishingDate', 'id']
+        verbose_name = 'Gönderi'
+        verbose_name_plural = 'Gönderiler'
 
 
 class Comment(models.Model):
@@ -52,6 +54,10 @@ class Comment(models.Model):
     content = models.TextField(verbose_name='Yorum')
 
     created_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Yorum'
+        verbose_name_plural = 'Yorumlar'
 
 
 

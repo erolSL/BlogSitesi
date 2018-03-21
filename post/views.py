@@ -7,7 +7,6 @@ from django.db.models import Q
 
 
 def post_index(request):
-
     posts_list = Post.objects.all()
     query = request.GET.get('q')
 
@@ -52,7 +51,7 @@ def post_detail(request, slug):
 
 def post_create(request):
 
-    if not request.user.is_authenticated():
+    if not request.user.is_superuser:
         raise Http404()
 
     form = PostForm(request.POST or None, request.FILES or None)
@@ -71,7 +70,7 @@ def post_create(request):
 
 
 def post_update(request, slug):
-    if not request.user.is_authenticated():
+    if not request.user.is_superuser:
         raise Http404()
     post = get_object_or_404(Post, slug=slug)
     form = PostForm(request.POST or None, instance=post)
@@ -88,7 +87,7 @@ def post_update(request, slug):
 
 
 def post_delete(request, slug):
-    if not request.user.is_authenticated():
+    if not request.user.is_superuser:
         raise Http404()
     post = get_object_or_404(Post, slug=slug)
     post.delete()
